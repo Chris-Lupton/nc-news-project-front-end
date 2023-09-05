@@ -247,6 +247,18 @@ ul {
     margin: 0 2em;
 }
 
+.voted {
+    background-color: rgb(220, 220, 220);
+}
+
+.votes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 30vw;
+    margin: 1em auto;
+}
 
 /* @media only screen and (min-width: 600px) {
     .article-list { 

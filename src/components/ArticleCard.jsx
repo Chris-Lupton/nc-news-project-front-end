@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
 export function ArticleCard ({article}) {
+
     return (
     <li className="article-in-list">
         <Link className="article-author-link">{article.author}</Link>
@@ -9,12 +10,6 @@ export function ArticleCard ({article}) {
             <p className="article-created_at">{new Date(article.created_at).toDateString()}</p>
             <img className="article-img" src={article.article_img_url} alt={`image relating to ${article.topic}`} />
             <h3 className="article-title">{article.title}</h3>
-            <section>
-                <p className="article-votes">Votes: {article.votes}</p>
-                <button>+</button>
-                <button>-</button>
-            </section>
-            
         </Link>
     </li>
     )
