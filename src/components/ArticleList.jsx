@@ -14,16 +14,11 @@ export function ArticleList ({ topic }) {
         setIsLoading(true)
         getArticles(page, topic).then((articleData) => {
             setIsLoading(false)
-            if (typeof(articleData) === 'String') {
-                setError(articleData)
-                console.log(articleData);
-            } else {
-                setArticles((currArticles) => {
-                    const copyArticles = {...currArticles}
-                    copyArticles[page] = articleData
-                    return copyArticles
-                })
-            }
+            setArticles((currArticles) => {
+                const copyArticles = {...currArticles}
+                copyArticles[page] = articleData
+                return copyArticles
+            })
         })
     }, [topic])
 
@@ -43,7 +38,7 @@ export function ArticleList ({ topic }) {
 
     return (
     <article>
-        <Pagination page={page} setPage={setPage} articles={articles}/>
+        <Pagination page={page} setPage={setPage} list={articles}/>
         <ul>
             <div className="article-list">
                 {articles[page].map(article => {
@@ -51,7 +46,7 @@ export function ArticleList ({ topic }) {
                 })}
             </div>
         </ul>
-        <Pagination page={page} setPage={setPage} articles={articles}/>
+        <Pagination page={page} setPage={setPage} list={articles}/>
     </article>
     )
 }

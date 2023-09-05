@@ -1,4 +1,4 @@
-export function Pagination ({page, setPage, articles}) {
+export function Pagination ({page, setPage, list}) {
 
     function changePage (event) {
         setPage((currPage) => {
@@ -6,7 +6,7 @@ export function Pagination ({page, setPage, articles}) {
                 return currPage > 1 ? currPage - 1 : 1
             }
             if(event.target.id === 'next' ){
-                return articles[currPage+1].length > 0 ? currPage + 1 : currPage
+                return list[currPage+1].length > 0 ? currPage + 1 : currPage
             }
         })
     }
