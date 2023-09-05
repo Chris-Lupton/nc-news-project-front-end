@@ -31,3 +31,12 @@ export async function getTopics () {
         return err.response.data.msg
     }
 }
+
+export async function getCommentsForArticle (id, page) {
+    try {
+        const { data: { comments }} = await news.get(`/articles/${id}/comments?p=${page}`)
+        return comments
+    } catch (err) {
+        return err.response.data.msg
+    }
+}
