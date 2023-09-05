@@ -11,7 +11,6 @@ export function CommentCard ({ comment }) {
                 <button>+</button>
                 <button>-</button>
             </div>
-            
         </li>
     )
 }
