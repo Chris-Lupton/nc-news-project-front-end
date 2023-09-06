@@ -52,9 +52,7 @@
 }
 
 #topics {
-    width: 140px;
-    margin-top: 10px;
-    padding: 4px;
+    padding: 0.5em;
     border-radius: 5px 5px;
 }
 
@@ -78,6 +76,8 @@ nav {
     background-color: rgb(180, 180, 180);
     box-shadow: 2px 2px 8px 0px rgb(50, 50, 50);
     border-radius: 4px 4px;
+    height: auto;
+    width: auto;
   }
   
 .nav:hover {
@@ -99,10 +99,6 @@ button {
 button:hover{
     background-color: rgb(220, 220, 220);
     box-shadow: 1px 1px 1px 1px rgb(144, 144, 144);
-}
-
-.filters {
-    padding: 15px 30px;
 }
 
 ul {
@@ -290,6 +286,27 @@ ul {
     margin: 1em 1em;
     height: 4em;
     width: 60vw;
+}
+
+#hidden {
+    position: absolute;
+    transform: translateX(-100vw);
+}
+
+#not-hidden {
+    position: absolute;
+    background-color: lightgray;
+    width: 300px;
+    padding: 10px 10px;
+    border: 2px black solid;
+    border-radius: 10px/10px;
+}
+
+#filter-button {
+    padding: 0px;
+    width: auto;
+    height: auto;
+    padding: 0.5em 0.5em;
 }
 
 /* @media only screen and (min-width: 600px) {
