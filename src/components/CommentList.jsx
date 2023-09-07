@@ -81,7 +81,7 @@ export function CommentList ({article_id}) {
                 <div className="comment-list">
                     <NewComment comment={newComment} commentLoading={commentLoading} isError={isError}/>
                     {comments[page].map(comment => {
-                        return <CommentCard key={comment.comment_id} comment={comment}/>
+                        return <CommentCard key={comment.comment_id} comment={comment} setComments={setComments} page={page}/>
                     })}
                 </div>
             </ul>
