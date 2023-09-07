@@ -22,7 +22,7 @@ export function ArticleList ({ topic, sort_by, order }) {
             })
         }).catch ((err) => {
             setIsLoading(false)
-            setError(err.response.data.msg)
+            setError(`${err.response.data.status} ${err.response.data.msg}`)
         })
     }, [topic, sort_by, order])
 

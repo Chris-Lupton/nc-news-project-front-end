@@ -6,7 +6,7 @@ export function ArticleCard ({article}) {
     <div className="article-space">
     <li className="article-in-list">
         <Link className="article-author-link">{article.author}</Link>
-        <Link to={`/articles/${article.article_id}`} className="article-box">
+        <Link to={`/articles/${article.topic}/${article.article_id}`} className="article-box">
             <img className="article-img" src={article.article_img_url} alt={`image relating to ${article.topic}`} />
             <div className="article-info">
                 <p className="article-topic">{article.topic}</p>

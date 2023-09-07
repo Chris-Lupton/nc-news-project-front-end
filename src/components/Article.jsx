@@ -9,14 +9,19 @@ export function Article () {
     const [isLoading, setIsLoading] = useState(false)
     const [article, setArticle] = useState({})
     const { article_id } = useParams()
+    const [error, setError] = useState('')
     const [hasVotedUp, setHasVotedUp] = useState('not-voted')
     const [hasVotedDown, setHasVotedDown] = useState('not-voted')
 
     useEffect(() => {
         setIsLoading(true)
+        setError(false)
         getArticleById(article_id).then((articleData) => {
             setIsLoading(false)
             setArticle(articleData)
+        }).catch ((err) => {
+            setIsLoading(false)
+            setError(`${err.response.data.status} ${err.response.data.msg}`)
         })
     }, [article_id])
 
@@ -51,9 +56,11 @@ export function Article () {
 
     if (isLoading) return <div className="loader"></div>
 
+    if (error) return <p className="error">{error}</p>
+
     return (
         <main className="article">
-            <Link className='nav' id="topic">{article.topic}</Link>
+            <Link to={`/articles/${article.topic}`} className='nav' id="select-topic">{article.topic}</Link>
             <p id='created_at'>{new Date(article.created_at).toDateString()}</p>
             <Link id='author'>{article.author}</Link>
             <h3>{article.title}</h3>

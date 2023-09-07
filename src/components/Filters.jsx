@@ -17,8 +17,9 @@ export function Filters ({ setIsHidden }) {
     function handleClick(event) {
         event.preventDefault()
         setIsHidden('hidden')
-        let url = `/articles?`
-        if (filters.topic) url += `topic=${filters.topic}&`
+        let url = `/articles`
+        if (filters.topic) url += `/${filters.topic}`
+        url += '?'
         if (filters.sort_by) url += `sort_by=${filters.sort_by}&`
         if (filters.order) url += `order=${filters.order}`
         navigate(url)
@@ -55,8 +56,8 @@ export function Filters ({ setIsHidden }) {
             </label>
             <label htmlFor="order">Order articles
             <select onClick={handleFilters} id="order">
-                <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
+                <option value="asc">Ascending</option>
             </select></label>
             <button id='filter-button' onClick={handleClick}>Select</button>
         </div>

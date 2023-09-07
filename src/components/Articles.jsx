@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router-dom"
+import { Link, useParams, useSearchParams } from "react-router-dom"
 import { ArticleList } from "./ArticleList"
 import { useState } from "react"
 import { Filters } from "./Filters"
@@ -6,9 +6,9 @@ import { Filters } from "./Filters"
 export function Articles() {
 
     const [params, setParams] = useSearchParams()
-    const topic = params.get("topic")
     const sort_by = params.get("sort_by")
     const order = params.get("order")
+    const { topic } = useParams()
 
     const [isHidden, setIsHidden] = useState('hidden')
 
