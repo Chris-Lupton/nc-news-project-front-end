@@ -2,10 +2,12 @@ import axios from "axios"
 
 const news = axios.create({baseURL: 'https://chrisl-nc-news-project.onrender.com/api'})
 
-export async function getArticles(page, topic) {
+export async function getArticles(page, topic, sort_by, order) {
     let url = `/articles?`
     if (topic) url += `topic=${topic}&`
-    if (page) url += `p=${page}&`
+    if (sort_by) url += `sort_by=${sort_by}&`
+    if (order) url += `order=${order}&`
+    if (page) url += `p=${page}`
     const { data: { articles }} = await news.get(url)
     return articles
 }

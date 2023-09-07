@@ -31,13 +31,11 @@
 }
   
 .header {
-    width: 100vw;
     padding: 1.5em;
     display: flex;
     flex-direction: column;
-    background-color: rgb(222, 222, 222);
+    background-color: #dedede;
     border-bottom: 3px solid grey;
-    margin-bottom: 20px;
 }
 
 .header h1 {
@@ -51,7 +49,7 @@
     margin-bottom: 8px;
 }
 
-#topics {
+.topics {
     padding: 0.5em;
     border-radius: 5px 5px;
 }
@@ -109,17 +107,22 @@ ul {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    overflow-x:  hidden;
+    overflow-y: scroll;
+    height: 70vh;
 }
 
 .article-in-list {
     padding: 10px;
-    width: 90vw;
     align-items: center;
     list-style: none;
-    border: 2px solid grey;
     border-radius: 10px/10px;
-    padding: 5px;
+    padding: 5px 2vw;
     margin: 15px auto;
+}
+
+.article-in-list:hover {
+    background-color: rgb(240, 240, 240);
 }
 
 .page {
@@ -127,6 +130,7 @@ ul {
     justify-content: center;
     margin: auto;
     align-items: center;
+    padding-top: 0;
 }
 
 .page * {
@@ -135,51 +139,59 @@ ul {
     text-align: center;
 }
 
+.button-box{
+    margin: 0.5em 1em;
+}
+
 .article-box {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.article-info {
     display: grid;
-    justify-content: center;
-    gap: 10px 10px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        'topic date'
+        'title title'
+        'votes comments';
+}
+
+.article-space{
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    margin: 0 0.5em;
 }
 
 .article-author-link {
     font-size: larger;
     font-weight: 600;
 }
-.article-topic {
-    margin: 5px 5px;
+
+.article-topic{
+    grid-area: topic;
 }
 
 .article-title{
-    grid-row-start: 2;
-    grid-column-start: 2;
-}
-.article-box section {
-    display: flex;  
-    justify-content: space-between;
-    
-}
-.article-img {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    width: 40vw;
-    max-width: 400px;
+    margin: 0.5em 0;
+    grid-area: title;
 }
 
-#topic {
-    font-size: larger;
-    font-weight: 600;
-    padding: 5px 3px;
-    border: 2px solid grey;
-    border-radius: 10px 0px;
-    margin-left: 5vw;
-    width: 100px;
-    text-align: center;
+.article-created_at{
+    text-align: right;
+    grid-area: date;
+}
+
+.article-img {
+    width: 35vw;
+    max-width: 300px;
 }
 
 #author {
     font-size: x-large;
     margin: auto 5vw;
-
 }
 
 #author:hover {
@@ -233,6 +245,9 @@ ul {
 .comment-list {
     width: 90vw;
     margin: auto;
+    overflow-x:  hidden;
+    overflow-y: scroll;
+    height: 70vh;
 }
 
 .comment-in-list {
@@ -290,24 +305,57 @@ ul {
 
 #hidden {
     position: absolute;
-    transform: translateX(-100vw);
+    transform: translateX(-200vw);
 }
 
 #not-hidden {
     position: absolute;
     background-color: lightgray;
-    width: 300px;
-    padding: 10px 10px;
-    border: 2px black solid;
+    width: 180px;
+    padding: 0.5em 0.5em;
+    border: 1px solid grey;
     border-radius: 10px/10px;
+    transform: translateX(10em);
+}
+
+select {
+    width: 180px
+}
+
+#filter-box{
+    display: flex;
+    flex-direction: column;
+}
+
+#order-label{
+    margin: 0.25em 0.25em;
+}
+
+#order{
+    margin: auto 0.75em;
+}
+
+#topic, #sort_by, #order {
+    font-size: medium;
+    border: 1px solid grey;
+    border-radius: 10px 0px;
+    text-align: left;
+    padding: 0.5em 0.5em;
+    margin: 0.25em 0;
 }
 
 #filter-button {
-    padding: 0px;
     width: auto;
     height: auto;
     padding: 0.5em 0.5em;
+    margin: 0.5em 0;
 }
+
+.error {
+    font-size: x-large;
+    margin: 2em;
+}
+
 
 /* @media only screen and (min-width: 600px) {
     .article-list { 
