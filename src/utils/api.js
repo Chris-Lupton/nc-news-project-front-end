@@ -36,3 +36,7 @@ export async function postComment (id, newComment) {
     const { data: { comment } } = await news.post(`/articles/${id}/comments`, newComment)
     return comment
 }
+
+export async function deleteComment (id) {
+    return await news.delete(`/comments/${id}`)
+}

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
+import { DeleteComment } from "./DeleteComment.jsx"
 
-export function CommentCard ({ comment }) {
+export function CommentCard ({ comment, setComments, page }) {
+
     return (
         <li className="comment-in-list">
             <Link className="comment-author-link">{comment.author}</Link>
@@ -11,6 +13,7 @@ export function CommentCard ({ comment }) {
                 <button>+</button>
                 <button>-</button>
             </div>
+            <DeleteComment comment={comment} setComments={setComments} page={page}/>
         </li>
     )
 }
