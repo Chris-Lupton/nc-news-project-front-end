@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import { ArticleList } from "./ArticleList"
-import { useSearchParams } from "react-router-dom"
 import { useState } from "react"
 import { Filters } from "./Filters"
 
@@ -8,6 +7,9 @@ export function Articles() {
 
     const [params, setParams] = useSearchParams()
     const topic = params.get("topic")
+    const sort_by = params.get("sort_by")
+    const order = params.get("order")
+
     const [isHidden, setIsHidden] = useState('hidden')
 
     function displayFilters () {
@@ -21,10 +23,12 @@ export function Articles() {
 
     return (
         <main>
-            <Link className="nav">New Article</Link>
-            <button className="nav" onClick={displayFilters}>Filters</button>
+            <div className="button-box">
+                <Link className="nav">New Article</Link>
+                <button className="nav" onClick={displayFilters}>Filters</button>
+            </div>
             <span id={isHidden}><Filters setIsHidden={setIsHidden}/></span>
-            <ArticleList topic={topic}/>
+            <ArticleList topic={topic} sort_by={sort_by} order={order}/>
         </main>
     )
 }

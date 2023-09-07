@@ -18,21 +18,24 @@ export function Filters ({ setIsHidden }) {
         event.preventDefault()
         setIsHidden('hidden')
         let url = `/articles?`
-        if (filters.topic) url += `topic=${filters.topic}`
+        if (filters.topic) url += `topic=${filters.topic}&`
+        if (filters.sort_by) url += `sort_by=${filters.sort_by}&`
+        if (filters.order) url += `order=${filters.order}`
         navigate(url)
     }
 
-    function setTopic (event) {
+    function handleFilters (event) {
         setFilters((currFilters) => {
             const newFilters = {...currFilters}
-            newFilters.topic = event.target.value
+            newFilters[event.target.id] = event.target.value
             return newFilters
         })
     }
 
     return (
-        <div>  
-            <select onClick={setTopic} id="topics">
+        <div id="filter-box">  
+            <label htmlFor="topic">Select topic
+            <select onClick={handleFilters} id="topic">
                 <option value="">All topics</option>
                 {topics.map((topic) => {
                     return (
@@ -42,6 +45,19 @@ export function Filters ({ setIsHidden }) {
                 );
             })}
             </select>
+            </label>
+            <label htmlFor="sort_by">Sort articles by
+            <select onClick={handleFilters} id="sort_by">
+                <option value="created_at">Date</option>
+                <option value="comment_count">Comment count</option>
+                <option value="votes">Votes</option>
+            </select>
+            </label>
+            <label htmlFor="order">Order articles
+            <select onClick={handleFilters} id="order">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select></label>
             <button id='filter-button' onClick={handleClick}>Select</button>
         </div>
     )
