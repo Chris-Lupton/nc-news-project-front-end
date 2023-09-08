@@ -33,20 +33,51 @@
 .header {
     padding: 1.5em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #dedede;
     border-bottom: 3px solid grey;
+    align-items: center;
 }
 
 .header h1 {
     width: 5em;
-    border: 1px solid black;
     background-color: whitesmoke;
     text-align: center;
     padding: 5px 3px;
     border: 2px solid grey;
     border-radius: 10px 0px;
-    margin-bottom: 8px;
+    margin-right: 50vw;
+}
+
+.header h1:hover{
+    background-color: white;
+}
+
+.user {
+    width: 5em;
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 5px 3px;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    margin-right: 1vw;
+}
+
+.user:hover{
+    border-bottom: 2px solid grey;
+}
+
+.log-out {
+    width: 5em;
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 5px 3px;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+}
+
+.log-out:hover {
+    border-bottom: 2px solid grey;
 }
 
 .topics {
@@ -109,7 +140,7 @@ ul {
     flex-direction: column;
     overflow-x:  hidden;
     overflow-y: scroll;
-    height: 70vh;
+    height: 65vh;
 }
 
 .article-in-list {
@@ -131,6 +162,7 @@ ul {
     margin: auto;
     align-items: center;
     padding-top: 0;
+    height: 10vh;
 }
 
 .page * {
@@ -360,6 +392,19 @@ select {
     width: auto;
     padding-left: 0.75em;
     padding-right: 0.75em;
+}
+
+.post-article {
+    display: flex;
+    flex-direction: column;
+    border: 1px dashed gray;
+    border-radius: 10px 10px;
+    margin: 2em 2em;
+    padding: 2em 2em;
+}
+
+#body {
+    width: 50vw;
 }
 
 /* @media only screen and (min-width: 600px) {
