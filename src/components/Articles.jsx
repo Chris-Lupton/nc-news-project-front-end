@@ -24,7 +24,7 @@ export function Articles() {
     return (
         <main>
             <div className="button-box">
-                <Link className="nav">New Article</Link>
+                <Link to="/new_article" className="nav">New Article</Link>
                 <button className="nav" onClick={displayFilters}>Filters</button>
             </div>
             <span id={isHidden}><Filters setIsHidden={setIsHidden}/></span>

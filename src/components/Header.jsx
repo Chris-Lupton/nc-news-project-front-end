@@ -9,7 +9,8 @@ export function Header () {
   return (
     <header className="header">
         <Link to="/articles"><h1>NC News</h1></Link>
-        <Link>Logged in as: {user}</Link>
+        <Link className="user">{user}</Link>
+        <Link className="log-out">Log out</Link>
     </header>
   )
 }

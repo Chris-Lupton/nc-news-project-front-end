@@ -40,3 +40,8 @@ export async function postComment (id, newComment) {
 export async function deleteComment (id) {
     return await news.delete(`/comments/${id}`)
 }
+
+export async function postArticle (requestObject) {
+    const { data: { article }} = await news.post('/articles', requestObject)
+    return article
+}
