@@ -41,7 +41,7 @@ export function ArticleList ({ topic, sort_by, order }) {
     if (error) return <p className="error">{error}</p>
 
     return (
-    <article>
+    <div>
         <ul>
             <div className="article-list">
                 {articles[page].map(article => {
@@ -50,6 +50,6 @@ export function ArticleList ({ topic, sort_by, order }) {
             </div>
         </ul>
         <Pagination page={page} setPage={setPage} list={articles}/>
-    </article>
+    </div>
     )
 }

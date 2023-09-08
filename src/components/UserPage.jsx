@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { getArticles, getUser } from "../utils/api"
 import { UserContext } from "../contexts/user"
 import { ArticleCard } from "./ArticleCard"
@@ -29,16 +29,17 @@ export function UserPage() {
 
     return (
       <main id="user-page">
-            <h2>{userData.username}</h2>
-            <h3>{userData.name}</h3>
+          <div id="user-header">
             <img className='avatar' src={userData.avatar_url} alt={userData.username + 's avatar'} />
-            <p>{userData.username}'s articles</p>
+            <h3>{userData.username}</h3>
+            <h4>{userData.name}</h4>
+          </div>
+            <p>Articles by {userData.username}</p>
             <ul>
               {usersArticles.map(article => {
                   return <ArticleCard key={article.article_id} article={article}/>
               })}
             </ul>
-
       </main>
     )
 }
