@@ -62,7 +62,7 @@ export function Article () {
         <main className="article">
             <Link to={`/articles/${article.topic}`} className='nav' id="select-topic">{article.topic}</Link>
             <p id='created_at'>{new Date(article.created_at).toDateString()}</p>
-            <Link id='author'>{article.author}</Link>
+            <Link to={`/users/${article.author}`} id='author'>{article.author}</Link>
             <h3>{article.title}</h3>
             <img src={article.article_img_url} alt={`image relating to ${article.topic}`} />
             <p id='body'>{article.body}</p>
