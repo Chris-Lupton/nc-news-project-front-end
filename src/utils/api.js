@@ -50,3 +50,12 @@ export async function patchComment (id, vote) {
     const { data: { comment }} = await news.patch(`comments/${id}`, { inc_votes: vote })
     return comment
 }
+
+export async function getUser (name) {
+    const { data: { user }} = await news.get(`/users/${name}`)
+    return user
+}
+
+export async function deleteArticle (id) {
+    return await news.delete(`/articles/${id}`)
+}
