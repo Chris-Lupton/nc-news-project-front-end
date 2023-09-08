@@ -54,20 +54,20 @@ export function PostArticle () {
           <form onSubmit={handleSubmit}>
             <div className="title">
               <label htmlFor="title">Title
-              <input id="title" onChange={handleChange} value={inputs.title}/></label>
+              <input id='title' onChange={handleChange} value={inputs.title}/></label>
             </div>
             <div className="add-topic">
-              <label htmlFor="topic"></label>
+              <label htmlFor="topic">Select topic
               <select id="topic" onClick={handleChange}>
                 <option></option>
                 {topics.map((topic) => {
                   return <option key={topic.slug} value={topic.slug}>{topic.slug}</option>
                 })}
-              </select>
+              </select></label>
             </div>
             <div className="add-topic">
-                <label htmlFor="body">Topic
-                <input id="topic" onChange={handleChange} value={inputs.topic}/></label>
+                <label htmlFor="add-topic">Add new topic
+                <input id='topic' onChange={handleChange} value={inputs.topic}/></label>
             </div>
             <div className="body">
               <label htmlFor="body">Article

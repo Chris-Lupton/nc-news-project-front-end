@@ -8,7 +8,6 @@ export function ArticleCard ({article}) {
     const { user } = useContext(UserContext)
 
     return (
-    <div className="article-space">
     <li className="article-in-list">
         <Link to={`/users/${article.author}`} className="article-author-link">{article.author}</Link>
         <Link to={`/articles/${article.topic}/${article.article_id}`} className="article-box">
@@ -17,12 +16,11 @@ export function ArticleCard ({article}) {
                 <p className="article-topic">{article.topic}</p>
                 <p className="article-created_at">{new Date(article.created_at).toDateString()}</p>
                 <h3 className="article-title">{article.title}</h3>
-                <p>Votes: {article.votes}</p>
-                <p>Comments: {article.comment_count}</p>
+                <p className="article-votes">Votes: {article.votes}</p>
+                <p className="article-comments">Comments: {article.comment_count}</p>
                 {article.author === user ? <DeleteArticle article={article}/> : <div></div>}
             </div>
         </Link>
     </li>
-    </div>
     )
 }

@@ -8,7 +8,7 @@ export function Header () {
 
   return (
     <header className="header">
-        <Link to="/articles"><h1>NC News</h1></Link>
+        <Link className='news' to="/articles"><h1>NC News</h1></Link>
         <Link to={`/users/${user}`} className="user">{user}</Link>
         <Link className="log-out">Log out</Link>
     </header>

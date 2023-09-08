@@ -38,7 +38,7 @@ export function CommentCard ({ comment, setComments, page }) {
             <Link to={`/users/${comment.author}`} className="comment-author-link">{comment.author}</Link>
             <p className="comment-created-at">{new Date(comment.created_at).toDateString()}</p>
             <p className="comment-body">{comment.body}</p>
-            <div>
+            <div className="votes">
                 <p className="comment-votes">Votes: {comment.votes}</p>
                 <button onClick={vote} id='vote-up' className={hasVotedUp}>+</button>
                 <button onClick={vote} id='vote-down' className={hasVotedDown}>-</button>

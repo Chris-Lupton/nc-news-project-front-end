@@ -60,7 +60,7 @@ export function Article () {
 
     return (
         <main className="article">
-            <Link to={`/articles/${article.topic}`} className='nav' id="select-topic">{article.topic}</Link>
+            <Link id='topic-link' className='nav' to={`/articles/${article.topic}`} >{article.topic}</Link>
             <p id='created_at'>{new Date(article.created_at).toDateString()}</p>
             <Link to={`/users/${article.author}`} id='author'>{article.author}</Link>
             <h3>{article.title}</h3>
