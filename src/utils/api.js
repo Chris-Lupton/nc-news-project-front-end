@@ -45,3 +45,8 @@ export async function postArticle (requestObject) {
     const { data: { article }} = await news.post('/articles', requestObject)
     return article
 }
+
+export async function patchComment (id, vote) {
+    const { data: { comment }} = await news.patch(`comments/${id}`, { inc_votes: vote })
+    return comment
+}
