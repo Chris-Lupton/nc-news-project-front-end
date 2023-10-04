@@ -59,3 +59,8 @@ export async function getUser (name) {
 export async function deleteArticle (id) {
     return await news.delete(`/articles/${id}`)
 }
+
+export async function postUser (newUser) {
+    const { data: { user }} =  await news.post(`/users`, newUser)
+    return user.username
+}

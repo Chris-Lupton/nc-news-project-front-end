@@ -31,6 +31,7 @@
 }
   
 .header {
+    height: 4em;
     padding: 1.5em;
     display: flex;
     flex-direction: row;
@@ -44,11 +45,11 @@
 }
 
 .header h1 {
-    font-size: larger;
+    font-size: xx-large;
     width: 5em;
     background-color: whitesmoke;
     text-align: center;
-    padding: 5px 3px;
+    padding: 0.2em 0.1em;
     border: 2px solid grey;
     border-radius: 10px 0px;
 
@@ -466,4 +467,85 @@ select {
         margin: 0.5em 0.5em;
         border: 1px dotted grey;
     }
+}
+
+#guest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em auto;
+    background-color: #f7f7f7;
+    padding: 2em;
+    width: 75vw;
+    height: 100px;
+    border-radius: 5px 5px;
+    border: 1px dashed grey;
+    max-width: 600px;
+}
+
+#login_btn{
+    width: 12em;
+    height: 3em;
+}
+
+#new_user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: #f7f7f7;
+    width: 75vw;
+    height: 220px;
+    border-radius: 5px 5px;
+    border: 1px dashed grey;
+    max-width: 600px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em auto;
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em auto;
+    background-color: #f7f7f7;
+    padding: 2em;
+    width: 75vw;
+    height: 120px;
+    border-radius: 5px 5px;
+    border: 1px dashed grey;
+    max-width: 600px;
+}
+
+#login form,
+#new_user form{
+    text-align: center;
+    width: 18em;
+}
+
+#login input{
+    margin: auto 10px;
+}
+
+.error {
+    color: red;
+    font-size: medium;
+    margin: 0 0;
+}
+
+.loading_box {
+    width: 288px;
+    height: 178px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

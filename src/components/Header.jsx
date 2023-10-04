@@ -4,13 +4,26 @@ import { UserContext } from '../contexts/user'
 
 export function Header () {
 
-  const { user } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
+
+  function logOut() {
+    setUser('')
+  }
+
+  if(!user || user === 'guest') {
+    return (
+      <header className="header">
+        <Link className='news' to="/articles"><h1>NC News</h1></Link>
+        <Link onClick={logOut} to="/" className="log-out">Sign Up</Link>
+      </header>
+    )
+  }
 
   return (
     <header className="header">
         <Link className='news' to="/articles"><h1>NC News</h1></Link>
         <Link to={`/users/${user}`} className="user">{user}</Link>
-        <Link className="log-out">Log out</Link>
+        <Link onClick={logOut} to="/" className="log-out">Log out</Link>
     </header>
   )
 }
