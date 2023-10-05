@@ -9,16 +9,15 @@ export function ArticleCard ({article}) {
 
     return (
     <li className="article-in-list">
-        <Link to={`/users/${article.author}`} className="article-author-link">{article.author}</Link>
         <Link to={`/articles/${article.topic}/${article.article_id}`} className="article-box">
+            <h3 className="article-title">{article.title}</h3>
             <img className="article-img" src={article.article_img_url} alt={`image relating to ${article.topic}`} />
             <div className="article-info">
                 <p className="article-topic">{article.topic}</p>
+                <p className="article-author">{article.author}</p>
                 <p className="article-created_at">{new Date(article.created_at).toDateString()}</p>
-                <h3 className="article-title">{article.title}</h3>
-                <p className="article-votes">Votes: {article.votes}</p>
-                <p className="article-comments">Comments: {article.comment_count}</p>
-                {article.author === user ? <DeleteArticle article={article}/> : <div></div>}
+                <p className="article-votes"> ⬆️ {article.votes}</p>
+                <p className="article-comments"> 💬 {article.comment_count}</p>
             </div>
         </Link>
     </li>

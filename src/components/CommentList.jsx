@@ -77,13 +77,11 @@ export function CommentList ({article_id}) {
                 <textarea onChange={handleInput} value={commentInput} placeholder="Add a comment..."></textarea>
                 <button onClick={handlePost}>Post</button>
             </form>
-            <ul>
-                <div className="comment-list">
+            <ul className="comment-list">
                     <NewComment comment={newComment} commentLoading={commentLoading} isError={isError}/>
                     {comments[page].map(comment => {
                         return <CommentCard key={comment.comment_id} comment={comment} setComments={setComments} page={page}/>
                     })}
-                </div>
             </ul>
             <Pagination page={page} setPage={setPage} list={comments}/>
         </div>

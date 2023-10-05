@@ -42,12 +42,10 @@ export function ArticleList ({ topic, sort_by, order }) {
 
     return (
     <div>
-        <ul>
-            <div className="article-list">
+        <ul className="article-list">
                 {articles[page].map(article => {
                     return <ArticleCard key={article.article_id} article={article}/>
                 })}
-            </div>
         </ul>
         <Pagination page={page} setPage={setPage} list={articles}/>
     </div>

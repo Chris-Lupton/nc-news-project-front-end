@@ -60,12 +60,14 @@ export function Article () {
 
     return (
         <main className="article">
-            <Link id='topic-link' className='nav' to={`/articles/${article.topic}`} >{article.topic}</Link>
-            <p id='created_at'>{new Date(article.created_at).toDateString()}</p>
+            <div id='top-box'>
+                <Link id='topic-link' className='nav' to={`/articles/${article.topic}`} >{article.topic}</Link>
+                <p id='created_at'>{new Date(article.created_at).toDateString()}</p>
+            </div>
             <Link to={`/users/${article.author}`} id='author'>{article.author}</Link>
             <h3>{article.title}</h3>
             <img src={article.article_img_url} alt={`image relating to ${article.topic}`} />
-            <p id='body'>{article.body}</p>
+            <p id='article-body'>{article.body}</p>
             <div className="votes">
                 <p id="votes">Votes: {article.votes}</p>
                 <button onClick={vote} id='vote-up' className={hasVotedUp}>+</button>
