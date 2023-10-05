@@ -20,7 +20,9 @@ export function PostArticle () {
 
     function handleSubmit(event) {
       event.preventDefault()
-      if (!inputs.title){
+      if (user === 'guest'){
+        alert('Please log in before posting a new article')
+      } else if (!inputs.title){
         alert('Please input a title')
       } else if (!inputs.body){
         alert('Please input article')
@@ -38,6 +40,7 @@ export function PostArticle () {
     }
 
     function handleChange(event) {
+      setError(false)
       setInputs((currInputs) => {
         const copyInputs = { ...currInputs }
         copyInputs[event.target.id] = event.target.value
@@ -50,31 +53,27 @@ export function PostArticle () {
     if (isPosting) return <div className="loader"></div>
 
     return (
-        <main className="post-article">
-          <form onSubmit={handleSubmit}>
-            <div className="title">
-              <label htmlFor="title">Title
-              <input id='title' onChange={handleChange} value={inputs.title}/></label>
-            </div>
-            <div className="add-topic">
-              <label htmlFor="topic">Select topic
-              <select id="topic" onClick={handleChange}>
-                <option></option>
-                {topics.map((topic) => {
-                  return <option key={topic.slug} value={topic.slug}>{topic.slug}</option>
-                })}
-              </select></label>
-            </div>
-            <div className="add-topic">
-                <label htmlFor="add-topic">Add new topic
-                <input id='topic' onChange={handleChange} value={inputs.topic}/></label>
-            </div>
-            <div className="body">
-              <label htmlFor="body">Article
-              <textarea id="body" onChange={handleChange} value={inputs.body}/></label>
-            <button id="submit-article">Submit</button>
-            </div>
-          </form>
-        </main>
+      <main className="post-article-box">
+        <form className="post-article" onSubmit={handleSubmit}>
+
+        <label id="title-label" htmlFor="title">Title</label>
+        <input id='title' onChange={handleChange} value={inputs.title}/>
+
+        <label id="select-label" htmlFor="post-topic">Select topic</label>
+        <select id="post-topic" onClick={handleChange}>
+          <option></option>
+          {topics.map((topic) => {
+            return <option key={topic.slug} value={topic.slug}>{topic.slug}</option>
+          })}
+        </select>
+
+        <label id="topic-label" htmlFor="topic">Add new topic</label>
+        <input id='topic' onChange={handleChange} value={inputs.topic}/>
+
+        <label id="article-label" htmlFor="body">Article</label>
+        <textarea id="body" onChange={handleChange} value={inputs.body}/>
+        <button id="submit-article">Submit</button>
+        </form>
+      </main>
     )
 }

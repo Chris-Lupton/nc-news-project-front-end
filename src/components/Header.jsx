@@ -22,8 +22,10 @@ export function Header () {
   return (
     <header className="header">
         <Link className='news' to="/articles"><h1>NC News</h1></Link>
-        <Link to={`/users/${user}`} className="user">{user}</Link>
-        <Link onClick={logOut} to="/" className="log-out">Log out</Link>
+        <div>
+          <Link to={`/users/${user}`} className="user">{user}</Link>
+          <Link onClick={logOut} to="/" className="log-out">Log out</Link>
+        </div>
     </header>
   )
 }

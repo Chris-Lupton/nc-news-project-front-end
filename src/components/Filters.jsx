@@ -35,8 +35,8 @@ export function Filters ({ setIsHidden }) {
 
     return (
         <div id="filter-box">  
-            <label htmlFor="topic">Select topic
-            <select onClick={handleFilters} id="topic">
+            <label htmlFor="topic_filter">Select topic
+            <select onClick={handleFilters} id="topic_filter">
                 <option value="">All topics</option>
                 {topics.map((topic) => {
                     return (

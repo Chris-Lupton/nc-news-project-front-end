@@ -32,24 +32,20 @@
   
 .header {
     height: 4em;
-    padding: 1.5em;
+    padding: 1.2em 4vw;
     display: flex;
     flex-direction: row;
     background-color: #dedede;
     border-bottom: 3px solid grey;
     align-items: center;
-}
-
-.news{
-    margin-right: 20vw;
+    justify-content: space-between;
 }
 
 .header h1 {
-    font-size: xx-large;
-    width: 5em;
+    font-size: x-large;
     background-color: whitesmoke;
     text-align: center;
-    padding: 0.2em 0.1em;
+    padding: 0.4em 0.4em;
     border: 2px solid grey;
     border-radius: 10px 0px;
 
@@ -64,10 +60,10 @@
     width: auto;
     background-color: whitesmoke;
     text-align: center;
-    padding: 5px 3px;
+    padding: 0.7em 0.5em;
+    margin: 0 4px;
     border-bottom: 1px solid lightgray;
     text-align: center;
-    margin-right: 1vw;
 }
 
 .user:hover, .log-out:hover {
@@ -138,15 +134,15 @@ ul {
     flex-direction: column;
     overflow-x:  hidden;
     overflow-y: scroll;
-    height: calc(100vh - 220px);
+    height: calc(100vh - 238px);
 }
 
 .article-in-list {
-    padding: 10px;
+    padding: 0.5em 2vw;
+    margin: 0 2vw;
     align-items: center;
     list-style: none;
     border-radius: 10px/10px;
-    padding: 1em;
 }
 
 .article-in-list:hover {
@@ -169,64 +165,86 @@ ul {
 }
 
 .article-box {
-    display: flex;
-    flex-direction: row;
-}
-
-.article-info {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto auto;
     grid-template-areas: 
-        'topic date'
         'title title'
-        'votes comments';
-    max-width: 60%;
+        'img details';
 }
 
-.article-author-link {
-    font-size: larger;
-    font-weight: 600;
-    margin-left: 1em;
+.article-info {
+    grid-area: details;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        'date date'
+        'topic author'
+        'votes comments';
+    width: 100%;
+}
+
+.article-author {
+    text-align: center;
+    margin: auto;
+    grid-area: author;
 }
 
 .article-topic{
     grid-area: topic;
     text-align: center;
+    margin: auto;
 }
 
 .article-title{
-    margin: 0.5em 0;
+    margin: 0.6em 0.5em;
     grid-area: title;
     text-align: center;
 }
 
 .article-created_at{
     text-align: right;
+    padding-right: 1em;
     grid-area: date;
+    margin: 0;
 }
 
 .article-votes{
     grid-area: votes;
     text-align: center;
+    margin: auto;
 }
 
 .article-comments {
     grid-area: comments;
     text-align: center;
+    margin: auto;
 }
 
 .article-img {
-    object-fit: contain;
-    max-width: 40%;
-    width: auto;
-    height: auto;
+    grid-area: img;
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+}
+
+.article {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+#top-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #topic-link{
-    position: absolute;
-    transform: translateY(-15px);
+    margin: 1.5em 0;
     margin-left: 5%;
+    width: 4em;
 }
 
 #author {
@@ -241,19 +259,17 @@ ul {
 
 #created_at {
     margin: 1.5em 0;
-    font-size: larger;
     font-weight: 600;
-    margin-right: 5vw;
+    margin-right: 5%;
     text-align: right;
-
+    display: flex;
+    align-items: center;
 }
 
 .article img {
-    width: 60vw;
-    max-width: 400px;
+    width: 60%;
     border-radius: 5px 5px;
-    margin: 20px;
-    margin-left: 5vw;
+    margin: 1em;
 }
 
 .article h3 {
@@ -261,32 +277,27 @@ ul {
     text-align: center;
     padding-bottom: 4px;
     border-bottom: 1px dashed black;
-    width: 90vw;
+    width: 90%;
     margin: 0 auto;
     margin-top: 15px;
 }
 
-#body {
-    margin: 0 5vw;
-    width: 90vw;
+#article-body {
+    margin: 0 5%;
+    width: 90%;
     text-align: justify;
     line-height: 1.5;
 }
 
-.article section {
-    display: flex;
-    flex-direction: row;
-    margin: 30px 5vw;
-}
-
 #comments {
     font-size: larger;
-    margin-left: 5vw;
-    margin-bottom: 0.8em;
+    margin-left: 5%;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed black;
 }
 
 .comment-list {
-    width: 90vw;
+    width: 90%;
     margin: auto;
     overflow-x:  hidden;
     overflow-y: scroll;
@@ -296,22 +307,36 @@ ul {
 .comment-in-list {
     border: 1px dotted darkgray;
     border-radius: 4px 4px;
-    margin: 1em;
+    margin-bottom: 0.6em;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        'author date'
+        'body body'
+        'votes votes';
 }
 
 .comment-author-link {
     font-size: larger;
-    font-weight: 600;
-    margin-left: 1em;
+    font-weight: 500;
+    grid-area: author;
+    margin: 0.6em 0;
+    text-align: left;
+    padding-left: 0.3em;
 }
 
 .comment-created-at{
     text-align: right;
-    margin-right: 1em;
+    margin: auto;
+    grid-area: date;
 }
 
 .comment-body {
-    margin: 1em 2em;
+    margin: 0.2em 0.4em;
+    grid-area: body;
+    text-align: start;
 }
 
 .voted {
@@ -322,16 +347,16 @@ ul {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    width: 40vw;
-    margin: 0.5em auto;
+    width: 50%;
+    margin: 0.2em auto;
+    grid-area: votes;
 }
 
 .comment-form {
     text-align: left;
     justify-content: center;
     align-content: center;
-    margin: 0 5vw;
+    margin: 0.4em 5%;
 }
 
 .comment-form button{
@@ -345,7 +370,7 @@ ul {
 .comment-form textarea{
     margin: 1em 1em;
     height: 4em;
-    width: 60vw;
+    width: 70%;
 }
 
 #hidden {
@@ -380,7 +405,7 @@ select {
     margin: auto 0.75em;
 }
 
-#topic, #sort_by, #order {
+#topic_filter, #sort_by, #order {
     font-size: medium;
     border: 1px solid grey;
     border-radius: 10px 0px;
@@ -407,33 +432,82 @@ select {
     padding-right: 0.75em;
 }
 
-.post-article {
-    display: flex;
-    flex-direction: column;
-    border: 1px dashed gray;
-    border-radius: 10px 10px;
-    margin: 2em 2em;
-    padding: 2em 2em;
+.post-article-box {
+    max-width: 600px;
+    margin: auto;
 }
 
-.post-article button {
-    width: auto;
-    height: auto;
+.post-article {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        'title-label title'
+        'select-label post-topic'
+        'topic-label topic'
+        'article-label body'
+        '_ button';
+
+    border: 1px dashed gray;
+    border-radius: 6px 6px;
+    margin: 1em 1em;
     padding: 1em 1em;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+#title-label{
+    grid-area: title-label;
+}
+#select-label{
+    grid-area: select-label;
+}
+#topic-label{
+    grid-area: topic-label;
+}
+#article-label{
+    grid-area: article-label;
+}
+
+#title{
+    grid-area: title;
+}
+#post-topic{
+    grid-area: post-topic;
+    padding: 0.25em 0.5em;
+    margin: 0.8em 0;
+    width: 54%;
+}
+#topic{
+    grid-area: topic;
+}
+#body{
+    grid-area: body;
 }
 
 .post-article input{
     font-size: medium;
     border: 1px solid grey;
     text-align: left;
+    padding: 0.25em 0.5em;
+    margin: 0.8em 0;
+    width: 50%;
+}
+
+.post-article textarea{
+    width: 90%;
+    height: 15vw;
     padding: 0.5em 0.5em;
     margin: 0.8em 0;
 }
 
-#body{
-    width: 60vw;
-    height: 20vw;
-    margin: 1em 1em;
+#submit-article {
+    width: 50%;
+    height: 50px;
+    margin: 1em 0;
+    padding: 1em 1em;
+    grid-area: button;
 }
 
 .avatar{
@@ -454,12 +528,12 @@ select {
     border-bottom: 2px solid gray;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 700px) {
     .article-list { 
         display: grid;
         grid-template-columns: 50% 50%;
         grid-template-rows: auto auto;
-
+        max-width: 950px;
     }
 
     .article-in-list{
@@ -467,17 +541,20 @@ select {
         margin: 0.5em 0.5em;
         border: 1px dotted grey;
     }
+
+    .button-box{
+        text-align: center;
+    }
 }
 
 #guest{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2em auto;
+    margin: 1em auto;
     background-color: #f7f7f7;
-    padding: 2em;
+    padding: 1em 2em;
     width: 75vw;
-    height: 100px;
     border-radius: 5px 5px;
     border: 1px dashed grey;
     max-width: 600px;
@@ -493,22 +570,22 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2em auto;
-    padding: 2em;
+    margin: 1em auto;
+    padding: 1em 2em;
     background-color: #f7f7f7;
     width: 75vw;
-    height: 220px;
     border-radius: 5px 5px;
     border: 1px dashed grey;
     max-width: 600px;
 }
 
 .input-box {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 1em auto;
+    margin: 1em 0;
 }
 
 #login{
@@ -516,11 +593,10 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2em auto;
+    margin: 1em auto;
     background-color: #f7f7f7;
-    padding: 2em;
+    padding: 1em 2em;
     width: 75vw;
-    height: 120px;
     border-radius: 5px 5px;
     border: 1px dashed grey;
     max-width: 600px;
