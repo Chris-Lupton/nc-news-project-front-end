@@ -15,6 +15,7 @@ export function Filters ({ setIsHidden }) {
     }, [])
 
     function handleClick(event) {
+        console.log(filters);
         event.preventDefault()
         setIsHidden('hidden')
         let url = `/articles`
@@ -33,10 +34,18 @@ export function Filters ({ setIsHidden }) {
         })
     }
 
+    function handleTopic (event) {
+        setFilters((currFilters) => {
+            const newFilters = {...currFilters}
+            newFilters.topic = event.target.value
+            return newFilters
+        })
+    }
+
     return (
         <div id="filter-box">  
             <label htmlFor="topic_filter">Select topic
-            <select onClick={handleFilters} id="topic_filter">
+            <select onClick={handleTopic} id="topic_filter">
                 <option value="">All topics</option>
                 {topics.map((topic) => {
                     return (
