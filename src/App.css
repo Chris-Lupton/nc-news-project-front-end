@@ -528,6 +528,17 @@ select {
     border-bottom: 2px solid gray;
 }
 
+.user-article{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-article > button {
+    height: 50px;
+}
+
 @media only screen and (min-width: 700px) {
     .article-list { 
         display: grid;

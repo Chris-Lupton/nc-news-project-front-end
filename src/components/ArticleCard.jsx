@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { UserContext } from "../contexts/user"
-import { DeleteArticle } from "./DeleteArticle"
 
 export function ArticleCard ({article}) {
 

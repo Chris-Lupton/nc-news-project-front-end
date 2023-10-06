@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { getArticles, getUser } from "../utils/api"
 import { UserContext } from "../contexts/user"
 import { ArticleCard } from "./ArticleCard"
+import { DeleteArticle } from "./DeleteArticle"
 
 export function UserPage() {
     const [userData, setUserData] = useState({})
@@ -37,7 +38,12 @@ export function UserPage() {
             <p>Articles by {userData.username}</p>
             <ul>
               {usersArticles.map(article => {
-                  return <ArticleCard key={article.article_id} article={article}/>
+                  return (
+                    <div className="user-article" key={article.article_id}>
+                      <ArticleCard article={article}/>
+                      <DeleteArticle article={article}/>
+                    </div>
+                  )
               })}
             </ul>
       </main>
