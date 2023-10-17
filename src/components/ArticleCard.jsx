@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { UserContext } from "../contexts/user"
+import { BiUpvote } from 'react-icons/bi'
+import { BiComment } from 'react-icons/bi'
 
 export function ArticleCard ({article}) {
 
@@ -15,8 +17,8 @@ export function ArticleCard ({article}) {
                 <p className="article-topic">{article.topic}</p>
                 <p className="article-author">{article.author}</p>
                 <p className="article-created_at">{new Date(article.created_at).toDateString()}</p>
-                <p className="article-votes"> ⬆️ {article.votes}</p>
-                <p className="article-comments"> 💬 {article.comment_count}</p>
+                <p className="article-votes"> <BiUpvote size={14}/> {article.votes}</p>
+                <p className="article-comments"> <BiComment size={14}/> {article.comment_count}</p>
             </div>
         </Link>
     </li>

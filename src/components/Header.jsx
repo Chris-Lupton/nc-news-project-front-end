@@ -25,7 +25,7 @@ export function Header () {
         <div>
           <Link to={`/users/${user}`} className="user">{user}</Link>
           <Link onClick={logOut} to="/" className="log-out">Log out</Link>
-        </div>
+      </div>
     </header>
   )
 }
