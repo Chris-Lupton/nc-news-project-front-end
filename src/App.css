@@ -1,11 +1,12 @@
 * {
     margin: 0;
     padding: 0;
+    color: #202020;
 }
 
 .loader {
     border: 16px solid #f3f3f3;
-    border-top: 16px solid #3498db;
+    border-top: 16px solid rgb(227, 159, 13);
     border-radius: 50%;
     width: 80px;
     height: 80px;
@@ -16,7 +17,7 @@
 
 .mini-loader {
     border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
+    border-top: 4px solid  rgb(227, 159, 13);
     border-radius: 50%;
     width: 10px;
     height: 10px;
@@ -32,13 +33,19 @@
   
 .header {
     height: 4em;
-    padding: 1.2em 4vw;
+    padding: 1.2em 3vw;
     display: flex;
     flex-direction: row;
-    background-color: #dedede;
-    border-bottom: 3px solid grey;
+    background: linear-gradient( rgb(203, 146, 23), rgba(61, 213, 15, 0.777));
+    border-bottom: 3px solid #202020;
     align-items: center;
     justify-content: space-between;
+}
+
+@media only screen and (min-width: 950px) {
+    .header{
+        padding: 1.2em calc((106vw - 950px) / 2);
+    }
 }
 
 .header h1 {
@@ -92,22 +99,22 @@ nav {
     font-size: large;
     font-weight: 500;
     margin: 10px;
-    padding: 0.3em;
-    border: 2px solid rgb(180, 180, 180);
+    padding: 0.4em;
+    border: 2px solid #585858;
     text-decoration: none;
     color: white;
-    background-color: rgb(180, 180, 180);
+    background-color: #585858;
     box-shadow: 2px 2px 8px 0px rgb(50, 50, 50);
     border-radius: 4px 4px;
     height: auto;
-    width: auto;
+    width: 105px;
   }
   
 .nav:hover {
-    color: rgb(180, 180, 180);
+    color: rgb(58, 58, 58);
     background-color: white;
     transition: background-color 0.4s;
-    transition: color 0.4s;
+    transition: color 0.3s;
 }
 
 button {
@@ -165,6 +172,7 @@ ul {
 }
 
 .article-box {
+    height: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto auto;
@@ -231,7 +239,7 @@ ul {
 
 .article {
     text-align: center;
-    max-width: 800px;
+    max-width: 950px;
     margin: auto;
 }
 
@@ -639,4 +647,9 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.new-article-title{
+    text-align: center;
+    margin: 1em;
 }

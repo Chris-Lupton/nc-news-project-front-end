@@ -41,7 +41,7 @@ export function UserPage() {
                   return (
                     <div className="user-article" key={article.article_id}>
                       <ArticleCard article={article}/>
-                      <DeleteArticle article={article}/>
+                      {(user===user_name)&&<DeleteArticle article={article}/>}
                     </div>
                   )
               })}

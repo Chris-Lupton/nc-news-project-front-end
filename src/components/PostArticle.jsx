@@ -72,6 +72,7 @@ export function PostArticle () {
 
     return (
       <main className="post-article-box">
+        <h2 className="new-article-title">Post your article</h2>
         <form className="post-article" onSubmit={handleSubmit}>
 
         <label id="title-label" htmlFor="title">Title</label>

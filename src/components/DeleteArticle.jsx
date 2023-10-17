@@ -17,7 +17,7 @@ export function DeleteArticle ({ article }) {
             setIsDeleted(true)
     
         }).catch(() => {
-            setCommentDeleting(false)
+            setArticleDeleting(false)
             setIsError(true)
         })
     }
